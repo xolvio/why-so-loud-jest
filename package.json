@@ -1,0 +1,34 @@
+{
+  "name": "why-so-loud-jest",
+  "version": "0.0.0-development",
+  "repository": "https://github.com/xolvio/why-so-loud-jest.git",
+  "license": "MIT",
+  "author": "lgandecki <lgandecki@css.edu>",
+  "main": "src/index.js",
+  "bin": "src/generatePatches.js",
+  "scripts": {
+    "lint": "eslint --cache --fix src/",
+    "semantic-release": "semantic-release"
+  },
+  "dependencies": {
+    "find-package-json": "^1.2.0",
+    "shelljs": "^0.8.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@tsconfig/node10": "^1.0.7",
+    "eslint": "7.12.0",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-config-prettier": "6.14.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jest": "24.1.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "husky": "^4.3.0",
+    "jest": "^26.6.1",
+    "lint-staged": "^10.5.0",
+    "prettier": "^2.1.2",
+    "semantic-release": "^17.2.2",
+    "sort-package-json": "^1.46.1"
+  }
+}

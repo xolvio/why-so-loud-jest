@@ -1,0 +1,18 @@
+diff --git a/node_modules/jest-runner/build/runTest.js b/node_modules/jest-runner/build/runTest.js
+index ffb1b4c..f5da848 100644
+--- a/node_modules/jest-runner/build/runTest.js
++++ b/node_modules/jest-runner/build/runTest.js
+@@ -232,11 +232,11 @@ async function runTestInternal(
+   ).default;
+   const consoleOut = globalConfig.useStderr ? process.stderr : process.stdout;
+ 
+-  const consoleFormatter = (type, message) =>
++  const consoleFormatter = (type, message, customStack) =>
+     (0, _console().getConsoleOutput)(
+       config.cwd,
+       !!globalConfig.verbose, // 4 = the console call is buried 4 stack frames deep
+-      _console().BufferedConsole.write([], type, message, 4),
++      _console().BufferedConsole.write([], type, message, 4, customStack),
+       config,
+       globalConfig
+     );

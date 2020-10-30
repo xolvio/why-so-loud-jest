@@ -1,0 +1,88 @@
+diff --git a/node_modules/@jest/console/build/BufferedConsole.js b/node_modules/@jest/console/build/BufferedConsole.js
+index aa347e5..75e891e 100644
+--- a/node_modules/@jest/console/build/BufferedConsole.js
++++ b/node_modules/@jest/console/build/BufferedConsole.js
+@@ -93,14 +93,14 @@ class BufferedConsole extends _console().Console {
+     _defineProperty(this, 'Console', _console().Console);
+   }
+ 
+-  static write(buffer, type, message, level) {
++  static write(buffer, type, message, level, passedStack) {
+     const stackLevel = level != null ? level : 2;
+     const rawStack = new (_jestUtil().ErrorWithStack)(
+       undefined,
+       BufferedConsole.write
+     ).stack;
+     invariant(rawStack, 'always have a stack trace');
+-    const origin = rawStack
++    const origin = passedStack || rawStack
+       .split('\n')
+       .slice(stackLevel)
+       .filter(Boolean)
+diff --git a/node_modules/@jest/console/build/CustomConsole.js b/node_modules/@jest/console/build/CustomConsole.js
+index d2d5c03..d52969e 100644
+--- a/node_modules/@jest/console/build/CustomConsole.js
++++ b/node_modules/@jest/console/build/CustomConsole.js
+@@ -96,17 +96,17 @@ class CustomConsole extends _console().Console {
+     this._formatBuffer = formatBuffer;
+   }
+ 
+-  _log(type, message) {
++  _log(type, message, customStack) {
+     (0, _jestUtil().clearLine)(this._stdout);
+     super.log(
+-      this._formatBuffer(type, '  '.repeat(this._groupDepth) + message)
++      this._formatBuffer(type, '  '.repeat(this._groupDepth) + message, customStack)
+     );
+   }
+ 
+-  _logError(type, message) {
++  _logError(type, message, customStack) {
+     (0, _jestUtil().clearLine)(this._stderr);
+     super.error(
+-      this._formatBuffer(type, '  '.repeat(this._groupDepth) + message)
++      this._formatBuffer(type, '  '.repeat(this._groupDepth) + message, customStack)
+     );
+   }
+ 
+@@ -134,7 +134,7 @@ class CustomConsole extends _console().Console {
+   }
+ 
+   debug(firstArg, ...args) {
+-    this._log('debug', (0, _util().format)(firstArg, ...args));
++    this._log('debug', (0, _util().format)(firstArg, ...args), this.debug.__stacktrace__);
+   }
+ 
+   dir(firstArg, ...args) {
+@@ -146,7 +146,7 @@ class CustomConsole extends _console().Console {
+   }
+ 
+   error(firstArg, ...args) {
+-    this._logError('error', (0, _util().format)(firstArg, ...args));
++    this._logError('error', (0, _util().format)(firstArg, ...args), this.error.__stacktrace__);
+   }
+ 
+   group(title, ...args) {
+@@ -178,11 +178,11 @@ class CustomConsole extends _console().Console {
+   }
+ 
+   info(firstArg, ...args) {
+-    this._log('info', (0, _util().format)(firstArg, ...args));
++    this._log('info', (0, _util().format)(firstArg, ...args), this.info.__stacktrace__);
+   }
+ 
+   log(firstArg, ...args) {
+-    this._log('log', (0, _util().format)(firstArg, ...args));
++    this._log('log', (0, _util().format)(firstArg, ...args), this.log.__stacktrace__);
+   }
+ 
+   time(label = 'default') {
+@@ -227,7 +227,7 @@ class CustomConsole extends _console().Console {
+   }
+ 
+   warn(firstArg, ...args) {
+-    this._logError('warn', (0, _util().format)(firstArg, ...args));
++    this._logError('warn', (0, _util().format)(firstArg, ...args), this.warn.__stacktrace__);
+   }
+ 
+   getBuffer() {

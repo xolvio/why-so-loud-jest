@@ -23,6 +23,11 @@ if you use yarn:
 yarn add patch-package postinstall-postinstall
 (check https://www.npmjs.com/package/patch-package documentation)
 
+run it once manually:
+
+npx patch-package
+
+
 Enjoy much quieter jest!
  `);
 } catch (e) {

@@ -20,9 +20,13 @@ Install this package:
 
 yarn add why-so-loud-jest -D
 
-Add it to your jest.config:
+Add it to your jest.config, with the verbose option 
+*we are setting verbose becuase while do do we want the logs not to be there in general,
+nonetheless when they are needed we want a nice, verbose report with a stack trace. 
+If you decide to do this you should probably follow the next step as well.*
 
-`setupFilesAfterEnv: ['why-so-loud-jest'],`
+`setupFilesAfterEnv: ['why-so-loud-jest'],
+verbose: true`
 
 Enjoy much quieter jest!
 
@@ -32,7 +36,8 @@ Enjoy much quieter jest!
 The downside of doing so will be that jest will show wrong stack-traces for the messages. Sad! :-(
 
 If that starts bugging you, there is an option. 
-Run `npx why-so-loud-jest` at the root of your package. 
+
+Now run `npx why-so-loud-jest` at the root of your package. 
 That will create patches for jest that will fix the problem. Follow the instruction displayed by the tool or here:
 
 Please add postinstall script to your package.json:

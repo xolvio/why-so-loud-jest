@@ -16,7 +16,7 @@ With this tiny plugin you will be able to see ONLY RELEVANT console messages. Th
 
 You can watch me here walk through the installation and use of this package:
 
-[![](http://img.youtube.com/vi/67ktHtFVfJM/0.jpg)](http://www.youtube.com/watch?v=67ktHtFVfJM "Why so loud, jest?")
+[![](http://img.youtube.com/vi/UGYVluf1l0w/0.jpg)](http://www.youtube.com/watch?v=UGYVluf1l0w "Why so loud, jest?")
 
 
 ## How

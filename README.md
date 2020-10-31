@@ -26,6 +26,7 @@ nonetheless when they are needed we want a nice, verbose report with a stack tra
 If you decide to do this you should probably follow the next step as well.*
 
 `setupFilesAfterEnv: ['why-so-loud-jest'],
+
 verbose: true`
 
 Enjoy much quieter jest!

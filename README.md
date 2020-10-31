@@ -14,6 +14,11 @@ But that way if something fails, you lose an important debugging tool. Maybe the
 
 With this tiny plugin you will be able to see ONLY RELEVANT console messages. That means - if all your tests pass, you have a beautiful jest tests report. If something fails - you see logs only for the test that failed!
 
+You can watch me here walk through the installation and use of this package:
+
+[![](http://img.youtube.com/vi/67ktHtFVfJM/0.jpg)](http://www.youtube.com/watch?v=67ktHtFVfJM "Why so loud, jest?")
+
+
 ## How
 
 Install this package:

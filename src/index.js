@@ -33,6 +33,7 @@ global.console = {
   warn: (...args) => squirrelAway(orig.warn, ...args),
   info: (...args) => squirrelAway(orig.info, ...args),
   debug: (...args) => squirrelAway(orig.debug, ...args),
+  table: (...args) => squirrelAway(orig.table, ...args),
 };
 
 global.afterEach(() => {
